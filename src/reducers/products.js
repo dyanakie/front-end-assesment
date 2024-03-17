@@ -1,6 +1,6 @@
 import * as productsActions from '../actions/products';
 import { REQ_RATING_FOR_FEATURED } from '../constants/constants';
-import {generateId} from '../utils';
+import {generateId} from '../utils/utils';
 
 export const isFeatured = ({rating, featured = false}) => rating >= REQ_RATING_FOR_FEATURED || featured;
 
@@ -14,11 +14,11 @@ export const products = (state = [], action) => {
             return state.filter((item) => item.id !== action.productId);
         case productsActions.UPDATE_PRODUCT:
             return state.map((item) => {
-                if (item.id === action.product.id) {
+                if (item.id === action.productId) {
                     return {
                         ...item,
-                        ...action.product,
-                        featured: isFeatured(action.product)
+                        ...action.data,
+                        featured: isFeatured(action.data)
                     }
                 }
                 return item;

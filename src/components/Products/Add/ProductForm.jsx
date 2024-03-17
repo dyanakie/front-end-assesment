@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Button, Form, FormFeedback, FormGroup, Input, Label } from "reactstrap";
 import { isCategoriesValid, isExpirationDateValid } from "../Update/validators";
 import { REQ_RATING_FOR_FEATURED } from "../../../constants/constants";
-import { getMultiSelected } from "../../../utils";
+import { getMultiSelected } from "../../../utils/utils";
 
 const requiredFields = ["name", "brand", "rating", "featured", "itemsInStock", "receiptDate", "expirationDate"];
 

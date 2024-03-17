@@ -15,7 +15,7 @@ const UpdateFormContainer = ({categories, dispatch, product}) => {
 
     const handleFormSubmit = (product) => {
         if (product) {
-            dispatch(updateProduct(product));
+            dispatch(updateProduct(product.id, product));
         }
         
         history.push("/");

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {Button, Form, FormFeedback, FormGroup, Input, Label} from 'reactstrap';
-import {getMultiSelected, repeat} from '../../../utils';
+import {getMultiSelected, repeat} from '../../../utils/utils';
 import {isCategoriesValid, isNameValid} from './validators';
 
 export const ProductForm = ({onUpdate, product = {}, categories: allCategories }) => {
