@@ -11,8 +11,12 @@ Changed Product Form in Update only so it could work.
 
 -- Fix validations in Update
 -- Implement touched in Update
+-- ids are numbers in mock data but are strings in reducer create (conversion to number risky because of overflow)
 -- Share common components and forms
 -- validators could be moved up 1 level as it is relevant for both add and update
+-- selectors can be introduced with memoization => Reselect for example
+-- in actions update it is not productId but product => reflects in reducers => also compare of id with whole product ref
+
 
 Visual
 -- Cards will have different sizes depending on categories => should fix that

@@ -4,19 +4,28 @@ import PropTypes from 'prop-types';
 import {getProductById} from '../../../reducers/products';
 import {ProductForm} from './ProductForm';
 import {Link} from 'react-router-dom';
+import { updateProduct } from '../../../actions/products';
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const UpdateFormContainer = ({categories, dispatch, product}) => {
+    const history = useHistory();
     if (!product) {
         return null;
     }
+
+    const handleFormSubmit = (product) => {
+        if (product) {
+            dispatch(updateProduct(product));
+        }
+        
+        history.push("/");
+    };
 
     return (
         <>
             <Link to='/'>Home</Link>
             <ProductForm
-                onSave={(data) => {
-                    return
-                }}
+                onUpdate={handleFormSubmit}
                 product={product}
                 categories={categories}
             />

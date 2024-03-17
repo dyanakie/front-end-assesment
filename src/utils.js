@@ -6,7 +6,7 @@ export function getMultiSelected(target) {
             acc.push(value)
         }
         return acc;
-    }, [])
+    }, []);
 }
 
 const SEC = 1000;

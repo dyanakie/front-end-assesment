@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import {Button, Form, FormFeedback, FormGroup, Input, Label} from 'reactstrap';
 import {getMultiSelected, repeat} from '../../../utils';
 import {isCategoriesValid, isNameValid} from './validators';
-import { connect } from 'react-redux';
 
-export const ProductForm = ({dispatch, product = {}, categories: allCategories }) => {
+export const ProductForm = ({onUpdate, product = {}, categories: allCategories }) => {
     const [name, setName] = useState(product.name || '');
     const [brand, setBrand] = useState(product.brand || '');
     const [rating, setRating] = useState(product.rating || 0);
@@ -17,7 +16,8 @@ export const ProductForm = ({dispatch, product = {}, categories: allCategories }
 
     const onSubmit = (e) => {
         e.preventDefault();
-        dispatch(updateProduct({
+        onUpdate({
+            id: product.id,
             name,
             brand,
             rating,
@@ -26,7 +26,7 @@ export const ProductForm = ({dispatch, product = {}, categories: allCategories }
             receiptDate,
             expirationDate,
             featured,
-        }));
+        });
     }
 
     return (
@@ -126,5 +126,5 @@ export const ProductForm = ({dispatch, product = {}, categories: allCategories }
 ProductForm.propTypes = {
     product: PropTypes.object,
     categories: PropTypes.array.isRequired,
-    onSave: PropTypes.func.isRequired,
+    onUpdate: PropTypes.func.isRequired,
 };

@@ -15,9 +15,9 @@ export const deleteProduct = (id) => ({
     productId: id,
 });
 
-export const updateProduct = (id, data) => ({
+export const updateProduct = (product, data) => ({
     type: UPDATE_PRODUCT,
-    productId: id,
+    product,
     data,
 });
 
