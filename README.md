@@ -1,25 +1,23 @@
-# front-end-assesment
-Repo made for People Spheres
+# Front-End Assessment
+Repository created for People Spheres.
 
-## COMMENTS AND SUGGESTIONS
+## Comments and Suggestions
 
-I see the idea was to use Update from both Add and Update, it is totally good idea to share logic, but I believe Product Form
-should be abstracted one layer up into Products if its used. Also too many changes so I decided to Create Add Form again so we can
-easily see the differences and discuss them.
+### General Suggestions
+- The idea to use `Update` for both adding and updating is good, as it helps share logic between components. However, it might be more effective to abstract the `ProductForm` one layer up into a `Products` component if it's used in multiple places.
+- Due to significant differences, I decided to create the `AddForm` again to easily see the differences and facilitate discussion.
+- Validators could be moved up one level since they are relevant for both adding and updating.
+- Introduce selectors with memoization (e.g., using Reselect) for more efficient state querying.
 
-Changed Product Form in Update only so it could work.
+### Specific Changes
+- Fix validations in the Update component.
+- Implement the `touched` logic in the Update component.
+- Note that IDs are numbers in mock data but are strings in the reducer creation. Conversion to number is risky due to potential overflow.
+- Share common components and forms to avoid duplication.
+- In actions, it is not `productId` but `product` itself, which affects reducer logic as well. Also, ensure ID comparisons account for different types (string vs. number).
 
--- Fix validations in Update
--- Implement touched in Update
--- ids are numbers in mock data but are strings in reducer create (conversion to number risky because of overflow)
--- Share common components and forms
--- validators could be moved up 1 level as it is relevant for both add and update
--- selectors can be introduced with memoization => Reselect for example
--- in actions update it is not productId but product => reflects in reducers => also compare of id with whole product ref
-
-
-Visual
--- Cards will have different sizes depending on categories => should fix that
--- Missing Header in Update Form
--- Should be consistent to navigate back (Home button or Submit and Cancel button which I suggest) or navbar
--- Deletion can have prompt (modal or otherwise)
+### Visual and UX Improvements
+- Cards have different sizes depending on the categories, which should be fixed for consistency.
+- The header is missing in the Update Form.
+- Navigation back to the home or previous page should be consistent across the application (e.g., Home button or Submit and Cancel buttons, or even a navbar).
+- Consider adding a prompt for deletion operations (using a modal or similar UI element) to confirm the user's intention.
